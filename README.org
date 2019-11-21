@@ -1,0 +1,56 @@
+* Fete de la science 2019
+
+This is a basic online app to demonstrate quantum advantage in communication, that uses the magic square game.
+
+** Development
+
+*** Without Docker
+To develop locally without Docker, just install all the deps (=qproject= is needed because the default simulaqron backend seems buggy):
+
+: $ pip3 install simulaqron qproject flask
+
+start simulaqron:
+
+: $ simulaqron set backend projectq
+: $ simulaqron start -f
+
+and then run
+
+: $ ./development_mode_local.sh
+
+and open your browser at http://localhost:8000. You will be in =DEBUG= mode, so when you edit a file everything should reload automatically.
+
+*** With Docker
+
+Just make sure Docker and Docker-compose are installed, and then run:
+
+: $ ./development_mode_docker.sh
+
+and point your browser to http://localhost:5000. You will be in =DEBUG= mode, so when you edit a file everything should reload automatically.
+
+** Production
+
+If you want to run your server in production mode, you should run:
+
+: ./production_mode_docker.sh
+
+Note that this script makes sure that only the file =docker-compose.yml= is loaded. Indeed, by default the file =docker-compose.override.yml=, that contains only options for DEBUG mode is also loaded.
+
+When you make a change, make sure to stop/restart this command.
+
+** Deploy on the real server
+
+First we need to make sure the github repo is public. For now the sources are loaded in Docker by using the local folders. When we will deploy it to the actual server, it should be easier to fetch the sources directly from github. To do that, comment in =Dockerfile= the line
+
+: COPY . /git
+
+and uncomment in =Dockerfile= the line:
+
+: RUN git clone https://github.com/h-oll/fete_de_la_science_2019.git /git
+
+Then, sent to the webmaster the files =Dockerfile= and =docker-compose.yml=. That's all!
+
+** FIXME
+
+It seems that a few bugs are still present. Namely:
+- eventually make sure that if player 2 plays before player 1, things don't break

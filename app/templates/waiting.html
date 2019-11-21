@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for item in items %}
+
+
+<div class="title">Ceci est une page d'attente. Le joueur 2 peut maintenant jouer sur la session {{ item[0] }}. Cliquez sur "résultat" pour savoir si vous avez gagné. Si vous revenez ici, c'est que le deuxième joueur n'a pas encore joué. Dites lui de se dépécher :)</div>
+<br />
+
+
+<div id="items">
+<div id="idsession" class="invisible">{{ item[0] }}</div>
+<div id="ligne" class="invisible">{{ item[1] }}</div>
+<div id="ligneval" class="invisible">{{ item[2] }}</div>
+<div id="col" class="invisible">{{ item[3] }}</div>
+<div id="colval" class="invisible">{{ item[4] }}</div>
+</div>
+
+
+<table>
+	<tbody id="tabw">
+   </tbody>
+</table>
+
+<a href="{{ url_for('results', ids=item[0]) }}">Résultat</a>
+{% endfor %}
+
+{% endblock %}

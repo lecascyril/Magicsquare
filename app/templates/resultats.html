@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div id="log">Voici vos résultats</div>
+<div id="results">Sur la case <span id="case"></span>, le joueur 1 a mis un <span id="casej1"></span>, le joueur 2 un <span id="casej2"></span>.
+<br />
+Ainsi, vous avez <span id="winlose"></span> au jeu. 
+<br /> Nous vous invitons a maintenant essayer nos deux stratégies optimales, classiques et quantiques, pour voir les differences.</div>
+Votre tableau final: 
+
+
+<div id="items">
+<div id="idsession" class="invisible">{{ items1.0 }}</div>
+<div id="ligne" class="invisible">{{ items1.1 }}</div>
+<div id="ligneval" class="invisible">{{ items1.2 }}</div>
+<div id="col" class="invisible">{{ items1.3 }}</div>
+<div id="colval" class="invisible">{{ items1.4 }}</div>
+</div>
+
+
+<table>
+	<tbody id="tabw">
+   </tbody>
+</table>
+
+<div id="boutons">
+    <div id="boutonclassique" onclick="opticlass()">En appuyant ici, il vous sera proposé un tableau prérempli mettant en place une stratégie optimale classique (appuyez à nouveau pour retrouver votre tableau).</div>
+    <div id="boutonquant" onclick="showval()">En appuyant ici, il vous sera proposé une réponse mettant en place une stratégie optimale quantique</div>
+</div>
+
+<div classe="title" id="val">
+    Le joueur 1 aurait pu mettre la ligne {{ items1.1 }} à {{ ma }}, le joueur 2 aurait pu mettre la colonne {{ items1.3 }} a {{ mb }} 
+</div>
+
+{% endblock %}

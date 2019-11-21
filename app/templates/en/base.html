@@ -1,0 +1,28 @@
+<html>
+    <head>
+      <title>{{titre}} - Magic Square</title>
+      <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+   	</head>
+    <body>
+
+        <a href="{{ url_for('indexen')}}"><img src="/static/img/msg.png"></a>
+        <br />
+        <br />
+
+
+        
+{% block content %}{% endblock %}
+
+<br />
+<div class="buttonacc"><a href="{{ url_for('index')}}">Version Française</a></div>
+<div id="credit">Made with love by Cyril Castagnet, Léo Colisson, Francesco Arzani (and LIP6 QI TEAM), a project of QIH.</div>
+
+
+</body>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/persoen.js"></script>
+
+</html>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="log">Vous etes le joueur 2. Vous jouez sur la session <span id='numsess'>blabla</span><br />
+	Souvenez vous, quand vous remplissez la colonne, la somme des élements doit etre impaire.</div>
+
+<form action="{{ url_for('waiting2') }}" method="POST" id="formp1">
+
+<div id="tablesubmit2"><table>
+				<tbody id="tab2">
+		<tr>
+			<td>1</td><td></td><td></td>
+		</tr>
+		<tr>
+			<td></td><td></td><td></td>
+		</tr>
+		<tr>
+			<td></td><td></td><td></td>
+		</tr>
+	</tbody>
+</table>
+<div id="submitzone2"><div class="subs" id="submit1">impaire</div><div class="subs" id="submit2">impaire</div><div class="subs" id="submit3">impaire</div></div>
+</div>
+
+<div id="inputs" style="display:none"></div>
+
+<input type = "submit" value = "Envoyer vos valeurs" id="subbuton" />
+</form>
+
+{% endblock %}
