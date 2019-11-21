@@ -50,7 +50,3 @@ and uncomment in =Dockerfile= the line:
 
 Then, sent to the webmaster the files =Dockerfile= and =docker-compose.yml=. That's all!
 
-** FIXME
-
-It seems that a few bugs are still present. Namely:
-- eventually make sure that if player 2 plays before player 1, things don't break
